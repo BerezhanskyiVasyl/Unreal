@@ -1,0 +1,121 @@
+.page {
+  // .page__for-us
+  &__for-us {
+  }
+}
+.for-us {
+  background: var(--clr-black);
+  // .for-us__container
+  &__container {
+    @include adaptiveValue("padding-top", 142, 80, 1446, 320);
+    @include adaptiveValue("padding-bottom", 100, 50, 1446, 320);
+  }
+  // .for-us__title
+  &__title {
+  }
+  // .for-us__cards
+  &__cards {
+    @include adaptiveValue("--size-card", 346, 230, 1446, 776);
+    display: grid;
+    justify-content: space-around;
+    grid-template-columns: repeat(3, var(--size-card));
+    @media (max-width: $mobile) {
+      grid-template-columns: minmax(rem(200), rem(546));
+      @include adaptiveValue("gap", 32, 20, 767, 320);
+    }
+  }
+}
+.card-for-us {
+  display: flex;
+  flex-direction: column;
+  @media (max-width: $mobile) {
+    padding: rem(24);
+    border-radius: rem(16);
+    box-shadow: 0px 0px 10px var(--clr-yellow);
+  }
+  // .card-for-us__header
+  &__header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: rem(24);
+    &:not(:last-child) {
+      margin-bottom: rem(24);
+    }
+  }
+
+  // .card-for-us__icon
+  &__icon {
+    &::before {
+      color: var(--clr-yellow);
+      font-size: rem(48);
+    }
+  }
+  // .card-for-us__title
+  &__title {
+    h3 {
+      @include adaptiveValue("font-size", 16, 14, 992, 768);
+      margin-bottom: rem(4);
+      font-weight: 700;
+      text-transform: uppercase;
+      @media (max-width: $mobile) {
+        font-size: rem(16);
+      }
+    }
+    h4 {
+      display: flex;
+      font-weight: 300;
+      @include adaptiveValue("font-size", 16, 14, 992, 768);
+      text-transform: uppercase;
+      gap: rem(8);
+      @media (max-width: $mobile) {
+        font-size: rem(16);
+      }
+      span {
+        color: var(--clr-yellow);
+      }
+    }
+  }
+  // .card-for-us__desc
+  &__desc {
+    opacity: 0.6;
+    flex: 1;
+    text-align: center;
+    &:not(:last-child) {
+      margin-bottom: rem(32);
+    }
+  }
+  // .card-for-us__button
+  &__button {
+    position: relative;
+    width: 100%;
+    padding: rem(24);
+    border: none;
+    border-radius: rem(16);
+    outline: none;
+    overflow: hidden;
+    color: var(--clr-black);
+    font-weight: 600;
+
+    font-size: rem(16);
+    text-transform: uppercase;
+    cursor: pointer;
+    background: var(--clr-yellow);
+    &:after {
+      opacity: 0.2;
+      position: absolute;
+      top: rem(-50);
+      left: rem(-75);
+      width: rem(50);
+      height: rem(155);
+      content: "";
+      background: var(--clr-black);
+      transition: all 750ms cubic-bezier(0.19, 1, 0.22, 1);
+      transform: rotate(35deg);
+    }
+    &:hover:after {
+      left: 120%;
+      transition: all 750ms cubic-bezier(0.19, 1, 0.22, 1);
+    }
+  }
+}

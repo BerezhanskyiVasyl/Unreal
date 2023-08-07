@@ -1,0 +1,68 @@
+@font-face {
+  font-style: normal;
+  font-weight: normal;
+  font-family: "icons";
+  src: url("../fonts/icons/icons.eot?f7k4w6");
+  src: url("../fonts/icons/icons.eot?f7k4w6#iefix") format("embedded-opentype"),
+    url("../fonts/icons/icons.ttf?f7k4w6") format("truetype"), url("../fonts/icons/icons.woff?f7k4w6") format("woff"),
+    url("../fonts/icons/icons.svg?f7k4w6#icons") format("svg");
+  font-display: block;
+}
+
+%ic {
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  font-family: "icons";
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class*="_icon-"] {
+  &:before {
+    @extend %ic;
+    display: block;
+  }
+}
+
+._icon-message:before {
+  content: "\e90b";
+}
+._icon-profile:before {
+  content: "\e90c";
+}
+._icon-arrow-right:before {
+  content: "\e900";
+}
+._icon-discord:before {
+  content: "\e901";
+}
+._icon-forum:before {
+  content: "\e902";
+}
+._icon-home:before {
+  content: "\e903";
+}
+._icon-news:before {
+  content: "\e904";
+}
+._icon-promo-video:before {
+  content: "\e905";
+}
+._icon-studia-dz:before {
+  content: "\e906";
+}
+._icon-tiktok:before {
+  content: "\e907";
+}
+._icon-wallet:before {
+  content: "\e908";
+}
+._icon-youtube:before {
+  content: "\e909";
+}
+._icon-alendar:before {
+  content: "\e90a";
+}

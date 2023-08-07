@@ -1,0 +1,277 @@
+.header {
+  z-index: 100;
+  position: absolute;
+  top: 20px;
+  width: 100%;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: rem(24);
+    background-color: rgba(13, 13, 13, 0.7);
+    box-shadow: 0px 0px 24px 0px rgba(254, 213, 0, 0.16);
+    gap: rem(40);
+    padding-block: rem(12);
+    padding-inline: rem(32);
+    backdrop-filter: blur(8px);
+    @media (max-width: $pcSmall) {
+      justify-content: start;
+      gap: rem(70);
+    }
+    @media (max-width: $mobile) {
+      @include adaptiveValue("gap", 70, 30, 767, 320);
+    }
+  }
+
+  &__logo {
+    z-index: 10;
+    position: relative;
+    flex: 0 0 rem(142);
+    @media (max-width: $pcSmall) {
+      margin-right: auto;
+    }
+    @media (max-width: $mobile) {
+      @include adaptiveValue("flex-basis", 142, 80, 767, 320);
+    }
+    @media (max-width: $mobileSmall) {
+      z-index: -1;
+      position: absolute;
+      top: 120px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &__menu-block {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    align-items: center;
+    gap: rem(40);
+    @media (max-width: $pcSmall) {
+      position: fixed;
+      top: rem(-20);
+      left: -100%;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+      height: 100vh;
+      padding: rem(30);
+      background: url("../../image/back-casino.webp") 0 0 / cover no-repeat;
+      transition: left 0.3s ease 0s;
+      gap: rem(100);
+      &._active {
+        left: 0;
+      }
+    }
+  }
+
+  &__burger {
+    display: none;
+    @media (max-width: $pcSmall) {
+      display: block;
+      z-index: 5;
+      position: relative;
+      flex: 0 0 rem(40);
+      width: rem(40);
+      height: rem(28);
+      margin-right: rem(30);
+      border-radius: rem(1);
+      outline-width: rem(2);
+      outline-style: solid;
+      outline-color: var(--clr-yellow);
+      outline-offset: rem(19);
+      cursor: pointer;
+      background-color: rgba(27, 27, 27, 0.6);
+      span,
+      &::before,
+      &::after {
+        position: absolute;
+        right: 0;
+        width: 100%;
+        height: rem(2);
+        content: "";
+        background-color: var(--clr-yellow);
+        transition: all 0.3s ease 0s;
+      }
+      &::before {
+        top: 0;
+      }
+      &::after {
+        bottom: 0;
+      }
+      span {
+        top: calc(50% - rem(1));
+      }
+      .menu-open & {
+        span {
+          width: 0;
+        }
+        &::before,
+        &::after {
+        }
+        &::before {
+          top: calc(50% - rem(1));
+          transform: rotate(-45deg);
+        }
+        &::after {
+          bottom: calc(50% - rem(1));
+          transform: rotate(45deg);
+        }
+      }
+    }
+    @media (max-width: $mobileSmall) {
+      margin-right: rem(10);
+    }
+  }
+
+  &__menu {
+    margin-inline: auto;
+  }
+
+  &__social {
+    display: flex;
+    gap: rem(40);
+    @media (max-width: $pcSmall) {
+      gap: rem(60);
+    }
+  }
+
+  &__button {
+    display: flex;
+    z-index: -1;
+    position: relative;
+    flex: 0 0 rem(273);
+    justify-content: center;
+    align-items: center;
+    padding-top: rem(23);
+    padding-bottom: rem(23);
+    border: none;
+    border-radius: rem(16);
+    outline: none;
+    overflow: hidden;
+    color: var(--clr-yellow);
+    font-weight: 700;
+    font-size: rem(14);
+    text-transform: uppercase;
+    cursor: pointer;
+    background-color: rgba(27, 27, 27, 0.6);
+    box-shadow: 0px -1px 0px 1px var(--clr-yellow);
+    gap: rem(16);
+    @media (max-width: $mobile) {
+      @include adaptiveValue("flex-basis", 273, 50, 767, 320);
+    }
+    @media (max-width: $mobileSmall) {
+      flex: 1;
+    }
+    &::before {
+      font-size: rem(20);
+    }
+
+    &:after {
+      opacity: 0.2;
+      position: absolute;
+      top: rem(-50);
+      left: rem(-75);
+      width: rem(50);
+      height: rem(155);
+      content: "";
+      background: var(--color-main);
+      transition: all 750ms cubic-bezier(0.19, 1, 0.22, 1);
+      transform: rotate(35deg);
+    }
+
+    &:hover:after {
+      left: 120%;
+      transition: all 750ms cubic-bezier(0.19, 1, 0.22, 1);
+    }
+  }
+}
+
+.menu {
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: rem(64);
+    @include adaptiveValue("gap", 64, 40, 1446, 1200);
+    @media (max-width: $pcSmall) {
+      flex-direction: column;
+      align-items: start;
+      gap: rem(74);
+    }
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: rem(14);
+    text-transform: uppercase;
+    gap: rem(10);
+    @media (max-width: $pcSmall) {
+      font-size: rem(30);
+      gap: rem(30);
+    }
+    &::before {
+      font-size: rem(20);
+      @media (max-width: $pcSmall) {
+        font-size: rem(50);
+      }
+    }
+  }
+
+  &__item {
+    opacity: 0.6;
+    position: relative;
+    transition: 0.4s;
+    &:first-child .menu__link:before {
+      font-size: rem(18);
+      @media (max-width: $pcSmall) {
+        font-size: rem(50);
+      }
+    }
+    &.active {
+      opacity: 1;
+      &::before {
+        display: block;
+        z-index: 1000;
+        position: absolute;
+        top: -35px;
+        left: 40%;
+        width: 0;
+        height: 0;
+        border-top: 15px solid var(--clr-yellow);
+        border-right: 7px solid transparent;
+        border-left: 7px solid transparent;
+        content: "";
+        @media (max-width: $pcSmall) {
+          display: none;
+        }
+      }
+    }
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.active {
+  opacity: 1;
+}
+
+.social {
+  &__item {
+  }
+
+  &__link {
+    font-size: rem(24);
+    transition: 0.8s;
+    &:hover {
+      color: var(--clr-grey);
+    }
+    @media (max-width: $pcSmall) {
+      font-size: rem(54);
+    }
+  }
+}

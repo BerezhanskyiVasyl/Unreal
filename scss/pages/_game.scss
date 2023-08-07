@@ -1,0 +1,142 @@
+.page {
+  // .page__game
+  &__game {
+  }
+}
+.game {
+  background: var(--clr-black) url("../../image/bg-for-game.webp") left center no-repeat;
+  // .game__container
+  &__container {
+    @include adaptiveValue("padding-top", 142, 80, 1446, 320);
+    @include adaptiveValue("padding-bottom", 100, 50, 1446, 320);
+  }
+  // .game__title
+  &__title {
+  }
+  // .game__cards
+  &__cards {
+    @include adaptiveValue("--size-card", 346, 230, 1446, 776);
+    display: grid;
+    justify-content: space-around;
+    grid-template-columns: repeat(3, var(--size-card));
+    @media (max-width: $mobile) {
+      grid-template-columns: minmax(rem(200), rem(446));
+      @include adaptiveValue("gap", 32, 20, 767, 320);
+    }
+  }
+}
+
+.card-game {
+  display: flex;
+  flex-direction: column;
+  padding: rem(24);
+  border-radius: rem(24);
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(16px);
+  gap: rem(8);
+  // .card-game__title
+  &__title {
+    display: flex;
+    align-items: center;
+    padding-top: rem(40);
+    padding-bottom: rem(40);
+    padding-left: rem(40);
+    gap: rem(56);
+    > *:last-child {
+      font-weight: 800;
+      font-size: rem(24);
+    }
+  }
+
+  &__namber {
+    position: relative;
+    color: #003957;
+    font-weight: 800;
+    font-size: rem(24);
+    text-transform: uppercase;
+
+    &::before {
+      display: block;
+      z-index: -1;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: rem(49);
+      height: rem(49);
+      border-radius: rem(2);
+      outline-width: rem(1);
+      outline-style: solid;
+      outline-color: var(--color-main);
+      outline-offset: rem(10);
+      content: "";
+      background-color: var(--color-main);
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+  }
+  // .card-game__desc
+  &__desc {
+    flex: 1;
+    padding-bottom: rem(14);
+    font-weight: 500;
+    line-height: 1.5;
+  }
+  // .card-game__btn
+  &__btn {
+    z-index: -1;
+    position: relative;
+    border: none;
+    border-radius: rem(8);
+    outline: none;
+    overflow: hidden;
+    font-weight: 600;
+    font-size: rem(14);
+    text-transform: uppercase;
+    cursor: pointer;
+    padding-block: rem(18);
+    &:after {
+      opacity: 0.2;
+      position: absolute;
+      top: rem(-50);
+      left: rem(-75);
+      width: rem(50);
+      height: rem(155);
+      content: "";
+      background: var(--color-main);
+      transition: all 750ms cubic-bezier(0.19, 1, 0.22, 1);
+      transform: rotate(35deg);
+    }
+
+    &:hover:after {
+      left: 120%;
+      transition: all 750ms cubic-bezier(0.19, 1, 0.22, 1);
+    }
+  }
+  // .card-game__btn--grey
+  &__btn--grey {
+    background: var(--clr-grey);
+  }
+  // .card-game__btn--black
+  &__btn--black {
+    background: var(--clr-black);
+    &:after {
+      background: var(--color-main);
+    }
+  }
+  // .card-game__btn--yellow
+  &__btn--yellow {
+    color: var(--clr-black);
+    background: var(--clr-yellow);
+    &:after {
+      background: var(--clr-black);
+    }
+  }
+  // .card-game__image
+  &__image {
+    display: flex;
+    flex-grow: 99;
+    img {
+      width: rem(242);
+      margin: auto;
+    }
+  }
+}
